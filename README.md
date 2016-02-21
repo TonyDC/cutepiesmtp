@@ -5,3 +5,17 @@ The app can open an existing Unix mailbox file or raw email messages in EML/MSG 
 
 Running the SMTP server on port 25 requires root priveleges. To run as a regular user, set a port higher than 1024, and configure your email clients to use that port.
 
+## Usage
+
+1. Install and make executable:
+    
+    `sudo wget https://github.com/elFua/cutepiesmtp/raw/master/cutepiesmtp.py -O /usr/local/bin/cutepiesmtp.py`
+    `sudo +x /usr/local/bin/cutepiesmtp.py`
+
+2. Run the app:
+
+    `cutepiesmtp.py`
+    
+    or 
+    
+    `python cutepiesmtp.py`
