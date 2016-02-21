@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cd "$(dirname "$0")"
 appname=cutepiesmtpdaemon
 appdir=build
 srcdir=..
