@@ -1,2 +1,5 @@
 debian-build/cutepiesmtpdaemon
 *.pyc
+*.swp
+*~
+*.deb

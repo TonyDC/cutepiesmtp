@@ -71,7 +71,7 @@ DEBUG_APP = False
 DEFAULT_PORT = 25
 DISABLE_APPSTATE = False
 APPNAME = 'Cute Pie SMTP Daemon'
-VERSION = '0.15.12.317'
+VERSION = '0.160221'
 DEFAULT_MBOX_PATH = 'mailbox.mbox'
 POLLING_TIME_MILLISECS = 1000
 PICKLE_FILE_NAME = "app_cache.appstate"
@@ -178,8 +178,6 @@ class MainWindow(QtGui.QMainWindow):
                                '-e',
                                "do shell script \"python cutepiesmt.py\" with administrator privileges",
                                os.environ)
-                    # OK os.system('osascript -e "on run(argv)" -e  "display notification item 1 of argv" -e "end" -- "test"')
-                    #         osascript -e "do shell script \\"exec pythonw $curdir/cutePieSmtpDaemon.py \\" with administrator privileges"
                 else:
                     os.execlpe('sudo', *args)
 
@@ -298,13 +296,6 @@ class MainWindow(QtGui.QMainWindow):
         QtGui.QApplication.restoreOverrideCursor()
 
         self.statusBar().showMessage("Saved '%s'" % filename, 2000)
-
-    # def about(self):
-    #     QtGui.QMessageBox.about(self, "About Dock Widgets",
-    #             "The <b>Dock Widgets</b> example demonstrates how to use "
-    #             "Qt's dock widgets. You can enter your own text, click a "
-    #             "customer to add a customer name and address, and click "
-    #             "standard paragraphs to add them.")
 
     def on_about(self):
         QtGui.QMessageBox.about(self, "About",
@@ -431,20 +422,6 @@ class MainWindow(QtGui.QMainWindow):
             triggered=self.on_open_file)
         self.actionOpenMboxFile.setIconText("Open")
 
-        # self.debugAction = QtGui.QAction(self.style().standardIcon(QtGui.QStyle.SP_TrashIcon), "Debug", self,
-        #         statusTip="Debug insert item",
-        #         triggered=self.debug_add_item)
-
-    # def debug_add_item(self):
-    #     # self.tableView.tableModel.sendSignalAboutToUpdateModel()
-    #     #
-    #     # # TODO DEBUG: test data remove
-    #     self.tableView.tableModel.sendSignalAboutToUpdateModel()
-    #     timestamp = QtCore.QDateTime.currentDateTime().toString()
-    #     tableview_data.append(['from', timestamp, '<<<<subject>>>>'])
-    #     email_bodies.append(timestamp)
-    #     self.tableView.tableModel.sendSignalModelUpdated()
-
     def set_port(self):
         intValue, ok = QtGui.QInputDialog.getInteger(self,
                 "SMTP port", "Enter SMTP port:", self.port)
@@ -487,9 +464,6 @@ class MainWindow(QtGui.QMainWindow):
             self.mbox_path = filePath
             self.write_settings()
             self.statusBar().showMessage('Mailbox: %s' % self.mbox_path)
-
-            # self.tableView.tableModel.sendSignalAboutToUpdateModel()
-            # timestamp = QtCore.QDateTime.currentDateTime().toString()
 
             del tableview_data[:]
             self.parse_email_items()
@@ -770,27 +744,6 @@ class MainWindow(QtGui.QMainWindow):
             self.bottomDock.setWidget(self.bottomDockWidgetContents)
             self.bottomDock.show()
             self.bottomDock.setMinimumHeight(32)
-            # self.horizontalLayoutWidget.update()
-            # self.horizontalLayoutWidget.updateGeometry()
-            # self.bottomDock.update()
-            # self.bottomDock.updateGeometry()
-            # self.bottomDockWidgetContents.update()
-            # self.bottomDockWidgetContents.updateGeometry()
-    # def on_attachment_context_menu(self, point):
-    #     """
-    #     Triggered when an attachment button is right-clicked
-    #
-    #     :type point: QPoint
-    #     """
-    #     button = self.sender()
-    #     self.current_attachment_button_from_context_menu = button
-    #     self.attachmentContextMenu.exec_(button.mapToGlobal(point))
-
-
-    # @QtCore.pyqtSlot()
-    # def store_click_target(self):
-    #     widget = self.sender()
-    #     self.current_attachment_button_from_context_menu = widget
 
     def on_attachment_context_menu_selection(self):
         """
@@ -1083,7 +1036,6 @@ class EmailParser(object):
                     body_html = EmailParser.decode_part(part, charset, content_type)
                     already_have_html = True
 
-                # not guaranteed to always work, since text/html might come after the plain text version
                 elif ('text/plain' in content_type and not already_have_html) \
                         or 'text/calendar' in content_type:
                     body_plain = '<pre style="white-space:pre-wrap; word-wrap:break-word;">' \
@@ -1220,32 +1172,6 @@ class EmailParser(object):
 
     @staticmethod
     def clean_header(header, chars=None):
-
-        # if '" <' in header:
-        #     parts = header.split('" <')
-        #
-        #     if len(parts) == 2:
-        #         left = parts[0].replace('"', '').strip()
-        #         right = parts[1]
-        #         cln_right = right.replace('<', '').replace('>', '').strip()
-        #
-        #         if left.lower() == cln_right.lower():
-        #             header = cln_right
-        #         else:
-        #             header = left + ' ' + right
-        # if '"' in hedr:
-        #     hedr = hedr.translate({ord('\\'): None, ord("'"): None, ord('"'): None})
-        # if '\n' in hedr or '\r' in hedr:
-        #     hedr = hedr.translate({ord('\r'): None, ord('\n'): None})
-        # if isinstance(header, unicode):
-        #     return header.translate({
-        #                             ord('\\'): None,
-        #                             ord("'"): None,
-        #                             ord('"'): None,
-        #                             ord('\r'): None,
-        #                             ord('\n'): None,
-        #                             ord('\t'): None
-        #                             })
         clean = header
         for char in chars:
             clean = clean.replace(char, '')
@@ -1285,12 +1211,6 @@ class EmailParser(object):
 
         except Exception as e:
             LOG.error("error decoding payload for part: %s\n%s", pprint.pformat(part), exc_info=e)
-
-            # payload = part.get_payload()
-            #
-            # if payload:
-            #     if isinstance(payload, list) and len(payload):
-            #         return "".join([str(pl) for pl in payload])
 
         if not payload:
             return u""
@@ -1403,27 +1323,6 @@ class EmailTableModel(QtCore.QAbstractTableModel):
             return True
         return False
 
-    # def removeRows(self, position, rows=1, index=QtCore.QModelIndex()):
-    #     print "\n\t\t ...removeRows() Starting position: '%s'"%position, 'with the total rows to be deleted: ', rows
-    #     self.beginRemoveRows(QtCore.QModelIndex(), position, position + rows - 1)
-    #     self.arraydata = self.arraydata[:position] + self.arraydata[position + rows:]
-    #     self.endRemoveRows()
-    #
-    #     return True
-
-    # def insertRows(self, position, rows=1, index=QtCore.QModelIndex()):
-    #     print "\n\t\t ...insertRows() Starting position: '%s'"%position, 'with the total rows to be inserted: ', rows
-    #     indexSelected=self.index(position, 0)
-    #     itemSelected=indexSelected.data().toPyObject()
-    #
-    #     self.beginInsertRows(QtCore.QModelIndex(), position, position + rows - 1)
-    #     for row in range(rows):
-    #         self.arraydata.insert(position + row,  "%s_%s"% (itemSelected, self.added))
-    #         self.added+=1
-    #     self.endInsertRows()
-    #     return True
-
-
     def sendSignalAboutToUpdateModel(self):
         self.emit(QtCore.SIGNAL("layoutAboutToBeChanged()"))
 
@@ -1436,7 +1335,6 @@ class EmailTableModel(QtCore.QAbstractTableModel):
         return QtCore.QAbstractTableModel.headerData(self, section, orientation, role)
 
     def insertRows(self, position, rows, item, parent=QtCore.QModelIndex()):
-        # beginInsertRows (self, QModelIndex parent, int first, int last)
         self.beginInsertRows(QtCore.QModelIndex(), len(self.arraydata), len(self.arraydata) + 1)
         self.arraydata.append(item)  # Item must be an array
         self.endInsertRows()
@@ -1460,16 +1358,6 @@ class EmailTableModel(QtCore.QAbstractTableModel):
     def flags(self, index):
         return QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsSelectable
 
-
-# class SortableDateTableItem(QtGui.QTableWidgetItem):
-#     def __init__(self, text, sortKey=0):
-#         #call custom constructor with UserType item type
-#         QtGui.QTableWidgetItem.__init__(self, text, QtGui.QTableWidgetItem.UserType)
-#         self.sortKey = sortKey
-#
-#     #Qt uses a simple < check for sorting items, override this to use the sortKey
-#     def __lt__(self, other):
-#         return self.sortKey < other.sortKey
 
 #  ############### MAILSYNC #################################
 class SmtpMailsinkServer(smtpd.SMTPServer):
