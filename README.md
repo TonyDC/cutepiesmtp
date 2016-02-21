@@ -72,8 +72,8 @@ The app requires the following python modules:
 A script for building a Debian/Ubuntu compatible DEB package is provided in the repo. To build and install a deb package run the following command from the `debian-build` folder in the cloned folder:
 
 ```bash
-    cd debian-build
-    ./build_deb.sh
+    ./debian-build/build_deb.sh
 ```
-    
+
+The DEB file will be created in the `debian-build` folder.
     
