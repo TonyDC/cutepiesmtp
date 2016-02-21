@@ -30,16 +30,22 @@ Running the SMTP server on port 25 requires root priveleges. To run as a regular
 
 1. Install and make executable:
     
-    `sudo wget https://github.com/elFua/cutepiesmtp/raw/master/cutepiesmtp.py -O /usr/local/bin/cutepiesmtp.py`
-    `sudo +x /usr/local/bin/cutepiesmtp.py`
+```bash
+    sudo wget https://github.com/elFua/cutepiesmtp/raw/master/cutepiesmtp.py -O /usr/local/bin/cutepiesmtp.py
+    sudo +x /usr/local/bin/cutepiesmtp.py
+```
 
 2. Run the app:
 
-    `cutepiesmtp.py`
+```bash
+    cutepiesmtp.py
+```
     
 An alternative way would be to clone the git project, `cd` into the project folder, and run:
     
-    `python cutepiesmtpdaemon.py`
+```bash
+    python cutepiesmtpdaemon.py
+```
 
 ## Dependencies
 
@@ -64,7 +70,9 @@ The app requires the following python modules:
 
 A script for building a Debian/Ubuntu compatible DEB package is provided in the repo. To create and install a deb package run the following command from the `debian-build` folder in the cloned folder:
 
-    `cd debian-build`
-    `./build_deb.sh`
+```bash
+    cd debian-build
+    ./build_deb.sh
+```
     
     
