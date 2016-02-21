@@ -75,5 +75,5 @@ A script for building a Debian/Ubuntu compatible DEB package is provided in the 
     ./debian-build/build_deb.sh
 ```
 
-The DEB file will be created in the `debian-build` folder.
+The DEB file will be created in the `debian-build` folder. The script will attempt to install the created DEB file using `dpkg -i packagename.deb`, and will prompt for the root password before performing the installation.
     
