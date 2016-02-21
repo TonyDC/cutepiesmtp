@@ -55,20 +55,21 @@ The app requires the following python modules:
 
 *pyqt4*
   
-  - `apt-get install python-qt4`
-  - `brew install pyqt`
+  
+  - Ubuntu/Debian Linux: `apt-get install python-qt4`
+  - OSX: `brew install pyqt`
 
-*lxml* (optional)
+*lxml* (optional) - used to cleanup the markup in HTML messages
   
   - `pip install lxml`
   
-*cchardet* (optional)
+*cchardet* (optional) - used to auto-detect character sets
   
   - `pip install cchardet`
  
 ## Ubuntu/Debian build
 
-A script for building a Debian/Ubuntu compatible DEB package is provided in the repo. To create and install a deb package run the following command from the `debian-build` folder in the cloned folder:
+A script for building a Debian/Ubuntu compatible DEB package is provided in the repo. To build and install a deb package run the following command from the `debian-build` folder in the cloned folder:
 
 ```bash
     cd debian-build
