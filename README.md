@@ -37,9 +37,9 @@ Running the SMTP server on port 25 requires root priveleges. To run as a regular
 
     `cutepiesmtp.py`
     
-    or 
+    or from the cloned folder:
     
-    `python cutepiesmtp.py`
+    `python cutepiesmtpdaemon.py`
 
 ## Dependencies
 
