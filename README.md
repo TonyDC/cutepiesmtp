@@ -1,9 +1,24 @@
 # Cute Pie SMTP Daemon
-Cute SMPT Daemon is a fake SMTP server created for debugging and development purposes. The app listens on localhost, intercepts email messages, and writes them to a standard Unix mailbox file. 
+Cute SMPT Daemon is a fake SMTP server created for debugging and development purposes. The app listens on localhost, intercepts email messages, and writes them to a standard Unix mailbox file.
+
+![Cute Pie SMTP Deamon](/images/screenshot.png?raw=true "Cute Pie SMTP Daemon main window")
 
 The app can open an existing Unix mailbox file or raw email messages in EML/MSG format. To strip styles and scripts from the HTML messages use Config > 'Enable HTML cleaning' Cute Pie SMTP Daemon is capable of extracting and saving attachments from mailboxes or from EML/MSG files. 
 
 Running the SMTP server on port 25 requires root priveleges. To run as a regular user, set a port higher than 1024, and configure your email clients to use that port.
+
+## Features
+
+- SMTP Server
+- real time display of received plain text and HTML email messages
+- strip extra HTML tags (*Config* > *Enable HTML cleaning*)
+- adjust SMTP port (*Config* > *SMTP port*)
+- open external mailbox files in [Unix MBox format](https://en.wikipedia.org/wiki/Mbox)
+- open single EML and MSG files complying with [RFC822 format](http://www.ietf.org/rfc/rfc0822.txt)
+- display and save email attachments
+- display inline images
+- open selected email with system default mail application
+- print selected email message
 
 ## Usage
 
@@ -19,3 +34,29 @@ Running the SMTP server on port 25 requires root priveleges. To run as a regular
     or 
     
     `python cutepiesmtp.py`
+
+## Dependencies
+
+Cute Pie SMTP Daemon requires the following python modules:
+
+*pyqt4*
+  
+  - `apt-get install python-qt4`
+  - `brew install pyqt`
+
+*lxml* (optional)
+  
+  - `pip install lxml`
+  
+*cchardet* (optional)
+  
+  - `pip install cchardet`
+ 
+## Ubuntu/Debian build
+
+A script for building a Debian/Ubuntu compatible DEB package is provided in the repo. To create and install a deb package run the following command from the `debian-build` folder in the cloned folder:
+
+    `cd debian-build`
+    `./build_deb.sh`
+    
+    
