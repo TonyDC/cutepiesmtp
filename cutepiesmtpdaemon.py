@@ -176,7 +176,7 @@ class MainWindow(QtGui.QMainWindow):
                     os.execlpe('osascript',
                                'osascript',
                                '-e',
-                               "do shell script \"python /Users/vio/projects/cutesmtpdaemon/cutepiesmtpdaemon.py\" with administrator privileges",
+                               "do shell script \"python cutepiesmt.py\" with administrator privileges",
                                os.environ)
                     # OK os.system('osascript -e "on run(argv)" -e  "display notification item 1 of argv" -e "end" -- "test"')
                     #         osascript -e "do shell script \\"exec pythonw $curdir/cutePieSmtpDaemon.py \\" with administrator privileges"
