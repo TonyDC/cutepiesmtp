@@ -3,7 +3,7 @@ Cute SMPT Daemon is a fake SMTP server created for debugging and development pur
 
 The app listens on localhost, intercepts email messages, and writes them to a standard Unix mailbox file, displaying the newly received messages in real time.
 
-To use Cute Pie SMTP Daemon configure your email sending application to use `localhost`, `127.0.0.1` or `0.0.0.0` as the SMTP server. The default SMTP port is `25`; to have Cute Pie SMTP Daemon listen on port `25` it must be run with root privileges. To run under regular user you'll need to configure your email clients to use a port higher than `1024` and then set this port in Cute Pie SMTP Deamon under *Config* > *SMTP port*.
+To use Cute Pie SMTP Daemon configure your email sending application to use `localhost`, `127.0.0.1` or `0.0.0.0` as the SMTP server.
 
 ![Cute Pie SMTP Deamon](/images/screenshot.png?raw=true "Cute Pie SMTP Daemon main window")
 
@@ -11,7 +11,7 @@ The app can open an existing Unix mailbox file or raw email messages in EML/MSG 
 
 Cute Pie SMTP Daemon is capable of extracting and saving email attachments, as well as opening messages in the system default email client. 
 
-Running the SMTP server on port 25 requires root priveleges. To run as a regular user, set a port higher than 1024, and configure your email clients to use that port.
+The default SMTP port is `25` which requires running the server with root priveleges. To run under regular user you'll need to configure your email clients to use a port higher than `1024` and then set this port in Cute Pie SMTP Deamon via the menu option *Config* > *SMTP port*.
 
 ## Features
 
