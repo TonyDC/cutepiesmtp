@@ -37,13 +37,15 @@ Running the SMTP server on port 25 requires root priveleges. To run as a regular
 
     `cutepiesmtp.py`
     
-    or from the cloned folder:
+An alternative way would be to clone the git project, `cd` into the project folder, and run:
     
     `python cutepiesmtpdaemon.py`
 
 ## Dependencies
 
-Cute Pie SMTP Daemon requires the following python modules:
+Cute Pie SMTP Daemon runs under Python 2.x. _Python 3 is not supported_.
+
+The app requires the following python modules:
 
 *pyqt4*
   
