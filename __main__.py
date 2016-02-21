@@ -1,0 +1,4 @@
+import cutepiesmtpdaemon
+
+cutepiesmtpdaemon.main()
+

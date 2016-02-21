@@ -1,0 +1,10 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+        <file>icons/open.png</file>
+        <file>icons/device.png</file>
+        <file>icons/printer.png</file>
+        <file>icons/switch.png</file>
+        <file>icons/attached.png</file>
+        <file>icons/new.png</file>
+</qresource>
+</RCC>

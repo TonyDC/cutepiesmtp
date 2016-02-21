@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Cute Pie SMTP Daemon
+Comment=Debugging SMTP server and mailbox viewer
+Exec=cutepiesmtpdaemon
+Icon=cutepiesmtpdaemon
+Type=Application
+Categories=Programming;Network;
+
