@@ -32,7 +32,7 @@ The default SMTP port `25` requires running the server with root priveleges. To 
     
 ```bash
     sudo wget https://github.com/elFua/cutepiesmtp/raw/master/cutepiesmtp.py -O /usr/local/bin/cutepiesmtp.py
-    sudo +x /usr/local/bin/cutepiesmtp.py
+    sudo chmod +x /usr/local/bin/cutepiesmtp.py
 ```
 
 2. Run the app:
