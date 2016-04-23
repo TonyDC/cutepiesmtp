@@ -71,7 +71,7 @@ DEBUG_APP = False
 DEFAULT_PORT = 25
 DISABLE_APPSTATE = False
 APPNAME = 'Cute Pie SMTP Daemon'
-VERSION = '0.160227'
+VERSION = '0.16.4.236'
 DEFAULT_MBOX_PATH = 'mailbox.mbox'
 POLLING_TIME_MILLISECS = 1000
 PICKLE_FILE_NAME = "app_cache.appstate"
@@ -705,43 +705,39 @@ class MainWindow(QtGui.QMainWindow):
         if attachments and len(attachments):
 
             self.bottomDockWidgetContents = QtGui.QWidget()
-            # self.bottomDockWidgetContents.setObjectName('attachments')
-            self.horizontalLayoutWidget = QtGui.QWidget(self.bottomDockWidgetContents)
-            self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 401, 80))
-            horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
-            horizontalLayout.setSizeConstraint(QtGui.QLayout.SetFixedSize)
-            horizontalLayout.setMargin(0)
-            horizontalLayout.setSpacing(0)
-
+            layout = QtGui.QVBoxLayout(self.bottomDockWidgetContents)
+            # layout.setSizeConstraint(QtGui.QLayout.SetFixedSize)
+            layout.setMargin(0)
+            layout.setSpacing(0)
+            layout.setAlignment(QtCore.Qt.AlignTop)
 
             self.bottomDockLayout = QtGui.QHBoxLayout()
 
             for attachIdx, attachmnt in enumerate(attachments):
                 button = QtGui.QPushButton(attachmnt.filename, None)
-                ############### button.clicked.connect(self.attachment_button_click_handler)
+                # ############## button.clicked.connect(self.attachment_button_click_handler)
                 # button.clicked.connect(lambda att=attachmnt: self.attachment_button_click_handler(att))
                 self.attachment_buttons.append(button)
                 button.setMenu(self.attachmentContextMenu)
-                # button.clicked.connect(self.store_click_target)
-                # button.pressed.connect(self.store_click_target)
-                # button.toggled.connect(self.store_click_target)
-                # button.connect(button, QtCore.SIGNAL("clicked()"), button, QtCore.SLOT("store_click_target()"))
                 button.setIcon(self.attachment_icon)
                 button.setIconSize(QtCore.QSize(16, 16))
-                ##### rightclick handler menu >>>>> THIS WORKS, DON'T REMOVE IT
-                ### button.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
-                ## self.connect(button, QtCore.SIGNAL('customContextMenuRequested(const QPoint&)'), self.on_attachment_context_menu)
-                ## button.setToolTip('Open <b>{0}</b> with associated application'.format(attachmnt.filename))
                 button.attachment = attachmnt
-                sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Fixed)
-                sizePolicy.setHorizontalStretch(1)
-                sizePolicy.setVerticalStretch(1)
+
+                sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+                sizePolicy.setHorizontalStretch(0)
+                sizePolicy.setVerticalStretch(0)
                 # sizePolicy.setHeightForWidth(self.button.sizePolicy().hasHeightForWidth())
                 button.setSizePolicy(sizePolicy)
 
-                horizontalLayout.addWidget(button)
+                layout.addWidget(button)
 
-            self.bottomDock.setWidget(self.bottomDockWidgetContents)
+            scrollarea = QtGui.QScrollArea()
+            scrollarea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+            scrollarea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+            scrollarea.setWidgetResizable(True)
+            scrollarea.setWidget(self.bottomDockWidgetContents)
+
+            self.bottomDock.setWidget(scrollarea)
             self.bottomDock.show()
             self.bottomDock.setMinimumHeight(32)
 
@@ -752,7 +748,7 @@ class MainWindow(QtGui.QMainWindow):
 
         action = self.sender()
 
-        widgets = self.horizontalLayoutWidget.children()
+        widgets = self.bottomDockWidgetContents.children()
 
         # TODO: Find a cleaner way to get the target withou looping
         #  SEARCH FOR THE PRESSED BUTTON
@@ -1204,13 +1200,16 @@ class EmailParser(object):
                         LOG.debug('\t\terror decoding payload with charset: %s\n%s', charset, pprint.pformat(payload), exc_info=e)
                 if not is_success and chardet:
                         guessed_charset = chardet.detect(payload)['encoding']
-                        payload = unicode(payload, encoding=guessed_charset, errors='ignore')
 
+                        if guessed_charset and guessed_charset in VALID_ENCODINGS:
+                            payload = unicode(payload, encoding=guessed_charset, errors='ignore')
+                        else:
+                            payload = unicode(payload, encoding='utf-8', errors='ignore')
             elif isinstance(payload, list) and len(payload):
                 payload = "".join([unicode(pl, encoding='latin1', errors='ignore') for pl in payload])
 
         except Exception as e:
-            LOG.error("error decoding payload for part: %s\n%s", pprint.pformat(part), exc_info=e)
+            LOG.error("error decoding payload for part: {}\n{}".format(pprint.pformat(part), str(e)))
 
         if not payload:
             return u""
@@ -1546,6 +1545,7 @@ def init_logging(log_file_dir=None, log_to_stdout=True, log_to_file=False):
         stdout_handler.setLevel(logging.DEBUG)
         stdout_handler.setFormatter(formatter)
         LOG.addHandler(stdout_handler)
+
 
 def main():
 
