@@ -1,0 +1,42 @@
+pkgname=cutepiesmtpdaemon
+_project_dir=cutepiesmtp
+# Maintainer: booleanbaby <booleanbaby at jeeeeemail dot com>
+pkgver=0.160221.r16.gea4be80
+pkgrel=1
+pkgdesc="Debugging SMTP server and Unix MBox viewer"
+url="https://github.com/elFua/cutepiesmtp"
+arch=("any")
+license=("Python")
+depends=('python2-pyqt4')
+optdepends=('python2-lxml: html email cleanup'
+			'python2-cchardet: email charset detection'
+)
+#makedepends=('git')
+categories=('programming')
+source=("git+https://github.com/elFua/cutepiesmtp.git")
+
+md5sums=('SKIP')
+#set -x
+#https://wiki.archlinux.org/index.php/VCS_package_guidelines
+pkgver() {
+  cd "${srcdir}"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package() {
+	cd "${srcdir}/${_project_dir}"
+	echo DEBUG: `pwd`
+    ##install -d "${pkgdir}/usr/"{bin,share}
+	install -Dm644 __main__.py "$pkgdir/usr/share/$pkgname/__main__.py"
+    install -Dm644 cutepiesmtpdaemon.py "$pkgdir/usr/share/$pkgname/cutepiesmtpdaemon.py"
+	install -Dm644 cutesmtp_icons.py "$pkgdir/usr/share/$pkgname/cutesmtp_icons.py" 
+	install -Dm644 valid_encodings.py "$pkgdir/usr/share/$pkgname/valid_encodings.py"
+	install -Dm644 icos.qrc "$pkgdir/usr/share/$pkgname/icos.qrc"
+	install -Dm644 LICENSE.md "$pkgdir/usr/share/$pkgname/LICENSE.txt"
+	install -Dm644 README.md "$pkgdir/usr/share/$pkgname/README.md"
+	install -Dm755 cutepiesmtp "$pkgdir/usr/bin/cutepiesmtp"
+    install -Dm644 "debian-build/$pkgname.desktop" "$pkgdir/usr/share/applications/$pkgname.desktop"
+	install -Dm644 "icons/$pkgname.png" "$pkgdir/usr/share/pixmaps/$pkgname.png"
+}
+
+
