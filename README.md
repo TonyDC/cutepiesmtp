@@ -14,9 +14,9 @@ To use Cute Pie SMTP Daemon configure your email sending application to use any 
 The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in Cute Pie SMTP Deamon via the menu option *Config* > *SMTP port*.
 
 ## Download
-[Mac OSX DMG](https://github.com/elFua/cutepiesmtp/releases)
+[Mac OSX DMG](https://github.com/elFua/cutepiesmtp/releases/download/0.16.6.2612'/cutePieSMTP-0.16.6.2612.dmg)
 
-[Windows EXE](https://github.com/elFua/cutepiesmtp/releases)
+[Windows EXE](https://github.com/elFua/cutepiesmtp/releases/download/0.16.6.2612'/cutePieSmtpDaemon-0.16.6.2612.exe)
 
 ## Features
 
