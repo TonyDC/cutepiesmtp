@@ -51,31 +51,32 @@ See the [Usage](#usage) section for generic Linux usage.
     cutepiesmtp.py
 ```
     
-An alternative way would be to clone the git project, `cd` into the project folder, and run:
+An alternative way would be to clone the git project, `cd` into the project folder, and run the python script:
     
 ```bash
+    git clone git@github.com:elFua/cutepiesmtp.git
+    cd cutepiesmtp
     python cutepiesmtpdaemon.py
 ```
 
 ## Dependencies
 
-Cute Pie SMTP Daemon runs under Python 2.x. _Python 3 is not supported_.
+Cute Pie SMTP Daemon runs under Python 2.x. Support for _Python 3_ is still work in progress.
 
 The app requires the following python modules:
 
 *pyqt4*
-  
   
   - Ubuntu/Debian Linux: `apt-get install python-qt4`
   - OSX: `brew install pyqt`
 
 *lxml* (optional) - used to cleanup the markup in HTML messages
   
-  - `pip install lxml`
+  - `pip install lxml --user`
   
 *cchardet* (optional) - used to auto-detect character sets
   
-  - `pip install cchardet`
+  - `pip install cchardet --user`
  
 ## Ubuntu/Debian build
 
