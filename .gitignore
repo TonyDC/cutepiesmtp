@@ -3,3 +3,4 @@ debian-build/cutepiesmtpdaemon
 *.swp
 *~
 *.deb
+dist/
