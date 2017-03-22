@@ -19,7 +19,7 @@ cp $appname.sh $appname/usr/bin/$appname
 chmod +x $appname/usr/bin/$appname
 cp $appname.desktop $appname/usr/share/applications/$appname.desktop
 cp $srcdir/icons/$appname.png $appname/usr/share/pixmaps/$appname.png
-cp $srcdir/{cutepiesmtpdaemon.py,valid_encodings.py,cutesmtp_icons.py,LICENSE.txt} $appname/usr/share/$appname/
+cp $srcdir/{cutepiesmtpdaemon_py3.py,valid_encodings.py,cutesmtp_icons.py,LICENSE.txt} $appname/usr/share/$appname/
 
 dpkg --build $appname/ $appname-$last_version.deb
 
@@ -29,5 +29,4 @@ sudo dpkg -i $appname-$last_version.deb
 
 exit 0
 
-#~ https://help.ubuntu.com/community/PythonRecipes/DebianPackage
 
