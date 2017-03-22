@@ -44,7 +44,7 @@ DEBUG_APP = False
 DEFAULT_PORT = 1025
 DISABLE_APPSTATE = False
 APPNAME = 'Cute Pie SMTP Daemon'
-VERSION = '0.16.26.2320'
+VERSION = '0.17.3.2221 (pyqt5)'
 DEFAULT_MBOX_PATH = 'mailbox.mbox'
 POLLING_TIME_MILLISECS = 1000
 PICKLE_FILE_NAME = "app_cache.appstate"
@@ -946,7 +946,7 @@ class EmailPoller:
     def set_handler(self, handler):
         self.handler = handler
 
-    @QtCore.pyqtSlot()
+    # @QtCore.pyqtSlot()
     def check_for_new_items(self):
 
         global PICKLE_STATE_DIRTY
