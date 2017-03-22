@@ -21,7 +21,7 @@ The default SMTP port `25` requires running the server with root priveleges. To 
 [Windows EXE](https://github.com/elFua/cutepiesmtp/releases/download/0.173.2221/cutePieSmtpDaemon-0.173.exe) (15.9MB)
 
 ##### Linux
-See the [Usage](#usage) section for generic Linux usage.
+See the [Usage](#usage) section for running on generic Linux systems.
 
 ## Features
 
@@ -38,14 +38,16 @@ See the [Usage](#usage) section for generic Linux usage.
 
 ## Usage
 
-1. Install and make executable:
+1. Install the [Dependencies](#dependencies).
+
+2. Install and make executable:
     
 ```bash
     sudo wget https://github.com/elFua/cutepiesmtp/raw/master/cutepiesmtp.py -O /usr/local/bin/cutepiesmtp.py
     sudo chmod +x /usr/local/bin/cutepiesmtp.py
 ```
 
-2. Run the app:
+3. Run the app:
 
 ```bash
     cutepiesmtp.py
@@ -61,14 +63,14 @@ An alternative way would be to clone the git project, `cd` into the project fold
 
 ## Dependencies
 
-Cute Pie SMTP Daemon runs under Python 2.x. Support for _Python 3_ is still work in progress.
+Cute Pie SMTP Daemon runs under Python 3.x. A version for _Python 2_ is available in another [branch](https://github.com/elFua/cutepiesmtp/tree/master-pyqt4-py2).
 
 The app requires the following python modules:
 
-*pyqt4*
+*pyqt5*
   
-  - Ubuntu/Debian Linux: `apt-get install python-qt4`
-  - OSX: `brew install pyqt`
+  - Ubuntu/Debian Linux: `apt-get install python-qt5`
+  - OSX: `brew install pyqt5`
 
 *lxml* (optional) - used to cleanup the markup in HTML messages
   
