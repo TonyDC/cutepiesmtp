@@ -206,7 +206,6 @@ class MainWindow(QtGui.QMainWindow):
                 with (open(default_mbox_path, 'w')) as f:
                     pass
                 self.mbox_path = default_mbox_path
-                self.write_settings()
 
     def print_(self):
 
