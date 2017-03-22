@@ -63,7 +63,7 @@ An alternative way would be to clone the git project, `cd` into the project fold
 
 ## Dependencies
 
-Cute Pie SMTP Daemon runs under Python 2.x. Support for _Python 3_ is still work in progress.
+Cute Pie SMTP Daemon runs under Python 3.x. A version for _Python 2_ is available in another [branch](https://github.com/elFua/cutepiesmtp/tree/master-pyqt4-py2).
 
 The app requires the following python modules:
 
