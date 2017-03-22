@@ -398,7 +398,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actionOpenMboxFile.setIconText("Open")
 
     def set_port(self):
-        int_value, ok = QtWidgets.QInputDialog.getInteger(self,
+        int_value, ok = QtWidgets.QInputDialog.getInt(self,
                                                           "SMTP port", "Enter SMTP port:", self.port)
         if ok:
             self.port = int_value
