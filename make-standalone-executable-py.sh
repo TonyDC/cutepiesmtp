@@ -5,7 +5,7 @@
 zipped_app=app.zip
 zipped_executable_script=cutepiesmtp.py
 
-zip -r $zipped_app __main__.py cutepiesmtpdaemon.py valid_encodings.py cutesmtp_icons.py
+zip -r $zipped_app __main__.py cutepiesmtpdaemon_py3.py valid_encodings.py cutesmtp_icons.py
 
 echo '#!/usr/bin/env python' | cat - $zipped_app > $zipped_executable_script
 
