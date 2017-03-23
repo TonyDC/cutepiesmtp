@@ -94,9 +94,9 @@ class MainWindow(QtWidgets.QMainWindow):
         # window size and position
         self.setGeometry(100, 150, 500, 660)
         self.read_settings()
-        self.init_folders()
 
         init_logging(log_file_dir=self.appdata_dir, log_to_file=self.is_log_file_enabled)
+        self.init_folders()
 
         self.textEdit = QtWidgets.QTextEdit()
         self.textEdit.setReadOnly(True)
