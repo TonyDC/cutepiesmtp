@@ -9,7 +9,7 @@ The app can open an existing Unix mailbox file or raw email messages in EML/MSG 
 
 Cute Pie SMTP Daemon is capable of extracting and saving email attachments, as well as opening messages in the system default email client. 
 
-To use Cute Pie SMTP Daemon configure your email sending application to use any of `localhost`, `127.0.0.1` or `0.0.0.0` as the SMTP server.
+To use Cute Pie SMTP Daemon configure your email sending application to use any of `localhost`, `127.0.0.1` or `0.0.0.0`  as the SMTP server. If the clients are on different computers then you will need to set either `0.0.0.0` or the actual IP address.
 
 The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in Cute Pie SMTP Deamon via the menu option *Config* > *SMTP port*.
 
