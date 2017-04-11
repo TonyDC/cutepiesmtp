@@ -1,17 +1,17 @@
-# QtSMTPDaemon
-QtSMPT Daemon is a fake SMTP server created for debugging and development purposes. The intended use case is verifying and monitoring email messages sent by an application you are developing or debugging.
+# QtSmtpDaemon
+QtSmtpDaemon is a fake SMTP server created for debugging and development purposes. The intended use case is verifying and monitoring email messages sent by an application you are developing or debugging.
 
 The app listens on localhost, intercepts email messages, and writes them to a standard Unix mailbox file, displaying the newly received messages in real time.
 
-![QtSMTPDeamon](/images/screenshot.png?raw=true "QtSMTP Daemon main window")
+![QtSmtpDaemon](/images/screenshot.png?raw=true "QtSmtpDaemon main window")
 
 The app can open an existing Unix mailbox file or raw email messages in EML/MSG format. To strip styles and scripts from the HTML messages use *Config* > *Enable HTML cleaning*.
 
-QtSMTPDeamon is capable of extracting and saving email attachments, as well as opening messages in the system default email client. 
+QtSmtpDaemon is capable of extracting and saving email attachments, as well as opening messages in the system default email client. 
 
-To use QtSMTPDeamon configure your email sending application to use any of `localhost`, `127.0.0.1` or `0.0.0.0`  as the SMTP server. If the clients are on different computers then you will need to set either `0.0.0.0` or the actual IP address.
+To use QtSmtpDaemon configure your email sending application to use any of `localhost`, `127.0.0.1` or `0.0.0.0`  as the SMTP server. If the clients are on different computers then you will need to set either `0.0.0.0` or the actual IP address.
 
-The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in QtSMTPDeamon via the menu option *Config* > *SMTP port*.
+The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in QtSmtpDaemon via the menu option *Config* > *SMTP port*.
 
 ## Download
 <!--
@@ -67,7 +67,7 @@ An alternative way would be to clone the git project, `cd` into the project fold
 
 ## Dependencies
 
-QtSMTPDeamon runs under Python 3.x. A version for _Python 2_ is available in another [branch](https://github.com/elFua/cutepiesmtp/tree/master-pyqt4-py2).
+QtSmtpDaemon runs under Python 3.x. A version for _Python 2_ is available in another [branch](https://github.com/elFua/cutepiesmtp/tree/master-pyqt4-py2).
 
 The app requires the following python modules:
 
