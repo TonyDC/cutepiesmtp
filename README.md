@@ -1,4 +1,4 @@
-# SmtpDaemon
+# PieSmtpDaemon
 PieSmtpDaemon is a non-relaying SMTP server created for debugging and development purposes. The intended use case is verifying and monitoring email messages sent by an application you are developing or debugging.
 
 The app listens on localhost, intercepts email messages, and writes them to a standard Unix mailbox file, displaying the newly received messages in real time.
