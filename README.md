@@ -1,17 +1,17 @@
-# QtSmtpDaemon
-QtSmtpDaemon is a fake SMTP server created for debugging and development purposes. The intended use case is verifying and monitoring email messages sent by an application you are developing or debugging.
+# SmtpDaemon
+PieSmtpDaemon is a non-relaying SMTP server created for debugging and development purposes. The intended use case is verifying and monitoring email messages sent by an application you are developing or debugging.
 
 The app listens on localhost, intercepts email messages, and writes them to a standard Unix mailbox file, displaying the newly received messages in real time.
 
-![QtSmtpDaemon](/images/screenshot.png?raw=true "QtSmtpDaemon main window")
+![PieSmtpDaemon](/images/screenshot.png?raw=true "PieSmtpDaemon main window")
 
 The app can open an existing Unix mailbox file or raw email messages in EML/MSG format. To strip styles and scripts from the HTML messages use *Config* > *Enable HTML cleaning*.
 
-QtSmtpDaemon is capable of extracting and saving email attachments, as well as opening messages in the system default email client. 
+PieSmtpDaemon is capable of extracting and saving email attachments, as well as opening messages in the system default email client. 
 
-To use QtSmtpDaemon configure your email sending application to use any of `localhost`, `127.0.0.1` or `0.0.0.0`  as the SMTP server.
+To use PieSmtpDaemon configure your email sending application to use any of `localhost`, `127.0.0.1` or `0.0.0.0`  as the SMTP server.
 
-The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in QtSmtpDaemon via the menu option *Config* > *SMTP port*.
+The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in PieSmtpDaemon via the menu option *Config* > *SMTP port*.
 
 ## Download
 <!--
@@ -67,7 +67,7 @@ An alternative way would be to clone the git project, `cd` into the project fold
 
 ## Dependencies
 
-QtSmtpDaemon runs under Python 3.x. A version for _Python 2_ is available in another [branch](https://github.com/elFua/cutepiesmtp/tree/master-pyqt4-py2).
+PieSmtpDaemon runs under Python 3.x. A version for _Python 2_ is available in another [branch](https://github.com/elFua/cutepiesmtp/tree/master-pyqt4-py2).
 
 The app requires the following python modules:
 
@@ -94,3 +94,4 @@ A script for building a Debian/Ubuntu compatible DEB package is provided in the 
 
 The DEB file will be created in the `debian-build` folder. The script will attempt to install the created DEB file using `dpkg -i packagename.deb`, and will prompt for the root password before performing the installation.
     
+
