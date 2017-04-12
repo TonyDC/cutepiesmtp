@@ -11,20 +11,8 @@ PieSmtpDaemon is capable of extracting and saving email attachments, as well as 
 
 To use PieSmtpDaemon configure your email sending application to use any of `localhost`, `127.0.0.1` or `0.0.0.0`  as the SMTP server.
 
-The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in PieSmtpDaemon via the menu option *Config* > *SMTP port*. By default port `1025` is used.# SmtpDaemon
-PieSmtpDaemon is a non-relaying SMTP server created for debugging and development purposes. The intended use case is verifying and monitoring email messages sent by an application you are developing or debugging.
+The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in PieSmtpDaemon via the menu option *Config* > *SMTP port*. By default port `1025` is used.
 
-The app listens on localhost, intercepts email messages, and writes them to a standard Unix mailbox file, displaying the newly received messages in real time.
-
-![PieSmtpDaemon](/images/screenshot.png?raw=true "PieSmtpDaemon main window")
-
-The app can open an existing Unix mailbox file or raw email messages in EML/MSG format. To strip styles and scripts from the HTML messages use *Config* > *Enable HTML cleaning*.
-
-PieSmtpDaemon is capable of extracting and saving email attachments, as well as opening messages in the system default email client. 
-
-To use PieSmtpDaemon configure your email sending application to use any of `localhost`, `127.0.0.1` or `0.0.0.0`  as the SMTP server.
-
-The default SMTP port `25` requires running the server with root priveleges. To run under regular user configure your email clients to use a port higher than `1024` and then set this port in PieSmtpDaemon via the menu option *Config* > *SMTP port*.
 
 ## Download
 <!--
