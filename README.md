@@ -5,7 +5,7 @@ The app listens on localhost, intercepts email messages, and writes them to a st
 
 ![PieSmtpDaemon](/images/screenshot.png?raw=true "PieSmtpDaemon main window")
 
-The app can open an existing Unix mailbox file or raw email messages in EML/MSG format. To strip styles and scripts from the HTML messages use *Config* > *Enable HTML cleaning*.
+The app can open an existing Unix mailbox file or raw email messages in EML/MSG format. To strip styles and scripts from HTML messages use *Config* > *Enable HTML cleaning*.
 
 PieSmtpDaemon is capable of extracting and saving email attachments, as well as opening messages in the system default email client. 
 
